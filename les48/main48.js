@@ -73,3 +73,55 @@ function sumNumbers(inputs) {
     },0)
 }
 
+var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9]]
+
+var i = 0
+function handle(a,b) {
+    // if(typeof b === 'number')  a[i++] = b
+    // if(Array.isArray(b)){
+    //     a = a.concat(b)
+    //     i = i + b.length
+    // }
+    // return a
+    return a.concat(b)
+}
+
+var flatArray = depthArray.reduce(handle, [])
+
+console.log(flatArray)
+
+var topics = [
+    {
+        topic: 'Front-end',
+        courses: [
+            {
+                id: 1,
+                title: 'HTML, CSS'
+            },
+            {
+                id: 2,
+                title: 'Javascript'
+            }
+        ]
+    },
+    {
+        topic: 'Back-end',
+        courses: [
+            {
+                id: 1,
+                title: 'PHP'
+            },
+            {
+                id: 2,
+                title: 'Node JS'
+            }
+        ]
+    }
+]
+
+function handle2(a,b) {
+    return a.concat(b.courses)
+}
+var list = topics.reduce(handle2, [])
+
+console.log(list)
